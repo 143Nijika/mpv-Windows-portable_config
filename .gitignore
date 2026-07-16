@@ -1,0 +1,12 @@
+#Ignore absolutely everything
+*
+#Except directories, otherwise Git won't look inside them
+!*/
+#Allow specific file extensions
+!*.conf
+!*.lua
+!*.glsl
+#Explicitly allow these files to be be tracked
+!.gitignore
+!.gitattributes
+!README.md
