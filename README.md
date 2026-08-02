@@ -20,7 +20,7 @@ Even if one does not intend to use mpv like a portable app, `portable_config` sh
 
 The benefits of an easy-to-find quick-to-reach configuration location should not be understated:
 * Reduces cognitive load when experimenting settings with an extremely customisable and extensible player. 
-* On the rare occasion mpv fails to play a previously playable file, I's go-to solution is clearing the `cache` and/or `watch_later`. (This has never failed me.)
+* On the rare occasion mpv fails to play a previously playable file, my go-to solution is clearing the `cache` and/or `watch_later`. (This has never failed me.)
 
 **Anatomy of a `portable_config`**
 
@@ -39,7 +39,7 @@ Regular scripts and shaders both inject code to modify the behaviour of mpv; sha
 
 Besides the subfolders listed above, `portable_config` also houses `mpv.conf` and `input.conf`. The former declares your mpv settings and the later declares your keyboard shortcuts. If these two files are absent, mpv follows its default internal configuration.
 
-[mpv upstream's `input.conf`](https://github.com/mpv-player/mpv/blob/master/etc/input.conf) is my recommended starting point for a new mpv user seeking to configure their custom keybinds. It is also the way to understand the latest default keybind; useful to long-time users when a default keybind suddenly stops working after updating mpv (which is a rare event but I has experienced it once concerning right-click behaviour).
+[mpv upstream's `input.conf`](https://github.com/mpv-player/mpv/blob/master/etc/input.conf) is my recommended starting point for a new mpv user seeking to configure their custom keybinds. It is also the way to understand the latest default keybind; useful to long-time users when a default keybind suddenly stops working after updating mpv (which is a rare event but I have experienced it once concerning right-click behaviour).
 
 [mpv upstream likewise provides a sample `mpv.conf`](https://github.com/mpv-player/mpv/blob/master/etc/mpv.conf), however this sample does not necessarily set default values unlike `input.conf`. Many samples of `mpv.conf` exist online as additional references.
 
