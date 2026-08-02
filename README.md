@@ -1,10 +1,10 @@
 # mpv portable_config
 
-This repository contains the author's configuration files for [Zhongfly's Windows mpv build](https://github.com/zhongfly/mpv-winbuild) stored in `portable_config` folder of mpv binary's root directory.
+This repository contains my configuration files for [Zhongfly's Windows mpv build](https://github.com/zhongfly/mpv-winbuild) stored in `portable_config` folder of mpv binary's root directory.
 
-The author intends to achieve two goals with this `README.md`:
+I intend to achieve two goals with this `README.md`:
 
-1. Document the scripts (plugins) the author relies on.
+1. Document the scripts (plugins) I rely on.
 
 2. Provide specific recommendations and references concerning the use of mpv in a Windows environment.
 
@@ -20,7 +20,7 @@ Even if one does not intend to use mpv like a portable app, `portable_config` sh
 
 The benefits of an easy-to-find quick-to-reach configuration location should not be understated:
 * Reduces cognitive load when experimenting settings with an extremely customisable and extensible player. 
-* On the rare occasion mpv fails to play a previously playable file, the author's go-to solution is clearing the `cache` and/or `watch_later`. (This has never failed the author.)
+* On the rare occasion mpv fails to play a previously playable file, I's go-to solution is clearing the `cache` and/or `watch_later`. (This has never failed me.)
 
 **Anatomy of a `portable_config`**
 
@@ -39,13 +39,15 @@ Regular scripts and shaders both inject code to modify the behaviour of mpv; sha
 
 Besides the subfolders listed above, `portable_config` also houses `mpv.conf` and `input.conf`. The former declares your mpv settings and the later declares your keyboard shortcuts. If these two files are absent, mpv follows its default internal configuration.
 
-[mpv upstream's `input.conf`](https://github.com/mpv-player/mpv/blob/master/etc/input.conf) is the author's recommended starting point for a new mpv user seeking to configure their custom keybinds. It is also the way to understand the latest default keybind; useful to long-time users when a default keybind suddenly stops working after updating mpv (which is a rare event but the author has experienced it once concerning right-click behaviour).
+[mpv upstream's `input.conf`](https://github.com/mpv-player/mpv/blob/master/etc/input.conf) is my recommended starting point for a new mpv user seeking to configure their custom keybinds. It is also the way to understand the latest default keybind; useful to long-time users when a default keybind suddenly stops working after updating mpv (which is a rare event but I has experienced it once concerning right-click behaviour).
 
 [mpv upstream likewise provides a sample `mpv.conf`](https://github.com/mpv-player/mpv/blob/master/etc/mpv.conf), however this sample does not necessarily set default values unlike `input.conf`. Many samples of `mpv.conf` exist online as additional references.
 
-Last but not least, one must not neglect [mpv documentation](https://mpv.io/manual/master/) as a valuable resource for writing their own `mpv.conf` and `input.conf`. It is of the author's opinion that a thorough yet relatively understandable documentation such as mpv's is a rarity in the world of free software.
+Last but not least, one must not neglect [mpv documentation](https://mpv.io/manual/master/) as a valuable resource for writing their own `mpv.conf` and `input.conf`. In my opinion a thorough yet relatively understandable documentation such as mpv's is a rarity in the world of free software.
 
 mpv can be as simple or as complicated as you wish.
+
+All scripts are cross-platform (or at least work on Windows and Linux since I do not use Mac machines) unless specified otherwise.
 
 ## Scripts
 
@@ -58,4 +60,35 @@ A high-performance on-the-fly thumbnailer to fix mpv's lack of native thumbnaile
 * scripts\osc.lua
 * scripts\thumbfast.lua
   
-As the author prefers the vanilla mpv OSC (On Screen Controller), `osc.lua` is used to adapt thumbfast to work with the vanilla OSC.
+As I prefers the vanilla mpv OSC (On Screen Controller), `osc.lua` is used to adapt thumbfast to work with the vanilla OSC. I have not fiddled with thumbfast.conf, the default just works&trade; for me.
+
+### [mpv Picture-in-Picture](https://github.com/detuur/mpv-scripts/blob/master/boss-key.lua)
+
+Toggles Picture-in-Picture mode with a keybind.
+
+#### Components
+* script-opts\pip.conf
+* scripts\pip.lua
+
+You can customize the keybinding, window size and window alignment in pip.conf.
+If you use the --input-default-bindings=no option, you need to customise your keybinding in input.conf:
+```
+KEY script-binding pip/toggle
+```
+I set my own keybind to 'z'. As this script works via Windows API calls it is Windows-only. 
+
+I added a commented out poor man's substitute in my input.conf for when I run mpv on Linux; unlike this script the substitute cannnot snap Picture-in-Picture mode to a specific area of the display.
+
+
+### [boss-key](https://github.com/detuur/mpv-scripts/blob/master/boss-key.lua)
+
+Instantly pauses and minimises the screen at the push of a button. Supports Windows, macOS, and X11 Linux. 
+
+The default keybind is b. One can change this by adding the following line to your input.conf:
+```
+KEY script-binding boss-key
+```
+#### Components
+* scripts\boss-key.lua
+  
+As I use the default keybind, my input.conf is free of boss key entries. This script is a fun gimmick but I would just quit the playback if I really want to hide what I was watching; I drop it when I use mpv on Linux. (X11 has no business on a desktop in the 2020s).
