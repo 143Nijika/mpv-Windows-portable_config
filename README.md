@@ -77,7 +77,7 @@ KEY script-binding pip/toggle
 ```
 I set my own keybind to 'z'. As this script works via Windows API calls it is Windows-only. 
 
-I added a commented out poor man's substitute in my input.conf for when I run mpv on Linux; unlike this script the substitute cannnot snap Picture-in-Picture mode to a specific area of the display.
+I added a commented out poor man's substitute in my input.conf for when I run mpv on Linux; unlike this script, the substitute cannnot snap Picture-in-Picture mode to a specific area of the display.
 
 
 ### [boss-key](https://github.com/detuur/mpv-scripts/blob/master/boss-key.lua)
